@@ -3,12 +3,12 @@ import {
     useSelector
 } from "react-redux";
 const _VendorsList = (props: Props) => {
-    const vendors = useSelector(state => state.vendor.vendorList.data)
+    const vendors = useSelector(state => state.vendor.vendorList)
     return <>
         {
-            vendors.finalResult.map(vendor => {
+           vendors && vendors.data.finalResult.map(vendor => {
                 if (vendor.type === "VENDOR")
-                    return <div>{vendor.data.title}</div>
+                    return <div key={vendor.data.id}>{vendor.data.title}</div>
             })
         }</>
 }
