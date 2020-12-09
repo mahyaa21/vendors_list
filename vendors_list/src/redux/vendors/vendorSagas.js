@@ -13,10 +13,8 @@ import {
 import { getVendorsListApi } from "../../api/Srvc/vendorSrvc";
 
 function* loadVendorsList(action) {
-    console.log('reeeerrrssss', action.data === getVendorsListApi(action.data));
     try {
         const res = yield call(() => getVendorsListApi(action.data), action.data);
-        console.log('reeeerrrssss', res);
         yield put({
             type: LOAD_VENDORS_LIST_SUCCESS,
             data: { payload: res.data }

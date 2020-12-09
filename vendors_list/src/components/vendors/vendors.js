@@ -12,7 +12,6 @@ const _Vendors = (props: Props) => {
     const fetchVendorList = (params={}) => {
         getVendorsListApi({...params})
             .then(response => {
-                console.log(response);
                 props.getVendorsList({ payload: response.data });
                 (vendorsKey === 1) ? setVendorKey(2) : setVendorKey(1);
             }).catch(err => {
