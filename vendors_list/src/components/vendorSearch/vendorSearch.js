@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import {
     useSelector
 } from "react-redux";
-import Vendors from '../vendors/vendors';
+import './vendorSearch.scss';
+
 const _VendorsSearch = (props: Props) => {
     const vendors = useSelector(state => state.vendor.vendorList)
     const selectFilter = (value) => {
@@ -11,13 +12,13 @@ const _VendorsSearch = (props: Props) => {
         }
         props.fetchVendorList(params)
     }
-    return <>
+    return <div className="search-container">
         {
             vendors && vendors.data.extra_sections.filters.top.data.map(filter => {
-                return <button onClick={() => selectFilter(filter.value)}>{filter.title}</button>
+                return <button onClick={() => selectFilter(filter.value)} className="filter-button"><span className="button-text">{filter.title}</span></button>
             })
         }
-    </>
+    </div>
 }
 
 export default _VendorsSearch;
