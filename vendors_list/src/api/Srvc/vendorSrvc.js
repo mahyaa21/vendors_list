@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const getVendorsList = (data: any) => {
+export const getVendorsListApi = (data: any) => {
 
     return new Promise((resolve, reject) => {
         axios.get(`https://snappfood.ir/mobile/v3/restaurant/vendors-list`)
